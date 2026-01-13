@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.widget {
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.title-info {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.timeframe {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.title-price {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.title-change {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.title-change.positive {
+  color: #2ecc71;
+}
+
+.title-change.negative {
+  color: #e74c3c;
+}
+
+.controls {
+  display: flex;
+  gap: 6px;
+  -webkit-app-region: no-drag;
+}
+
+.control-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.control-btn.close:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.control-btn.settings svg {
+  display: block;
+}
+
+
+.chart-container {
+  flex: 1;
+  padding: 8px 12px 12px;
+  min-height: 0;
+}
+
+#chart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.status {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  font-size: 10px;
+  color: #e74c3c;
+}
+
+/* Resize handles for frameless window */
+.resize-handle {
+  position: absolute;
+  -webkit-app-region: no-drag;
+}
+
+.resize-n {
+  top: 0;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  cursor: n-resize;
+}
+
+.resize-s {
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  cursor: s-resize;
+}
+
+.resize-e {
+  top: 8px;
+  right: 0;
+  bottom: 8px;
+  width: 4px;
+  cursor: e-resize;
+}
+
+.resize-w {
+  top: 8px;
+  left: 0;
+  bottom: 8px;
+  width: 4px;
+  cursor: w-resize;
+}
+
+.resize-nw {
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  cursor: nw-resize;
+}
+
+.resize-ne {
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  cursor: ne-resize;
+}
+
+.resize-sw {
+  bottom: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  cursor: sw-resize;
+}
+
+.resize-se {
+  bottom: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  cursor: se-resize;
+}
+
+/* Mini Mode Styles */
+.widget.mini-mode {
+  border-radius: 8px;
+}
+
+.widget.mini-mode .titlebar {
+  padding: 6px 10px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.widget.mini-mode .title-info {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0;
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+
+/* Top row: ticker only */
+.widget.mini-mode .title {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  order: 1;
+  width: 100%;
+}
+
+.widget.mini-mode .title::after {
+  content: none;
+}
+
+/* Bottom row: price + change */
+.widget.mini-mode .title-price {
+  font-size: 18px;
+  font-weight: 600;
+  order: 2;
+}
+
+.widget.mini-mode .title-change {
+  font-size: 11px;
+  font-weight: 500;
+  order: 3;
+  margin-left: 6px;
+}
+
+.widget.mini-mode .title-change.positive {
+  color: #2ecc71;
+}
+
+.widget.mini-mode .title-change.negative {
+  color: #e74c3c;
+}
+
+.widget.mini-mode .timeframe {
+  display: none;
+}
+
+.widget.mini-mode .controls {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  gap: 4px;
+}
+
+.widget.mini-mode .control-btn {
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+}
+
+.widget.mini-mode .control-btn.minimize {
+  display: none;
+}
+
+.widget.mini-mode .resize-handle {
+  display: none;
+}
+
+.widget.mini-mode .status {
+  display: none;
+}
+
+.control-btn.mini-toggle svg {
+  display: block;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <title>Settings</title>
+  </head>
+  <body>
+    <div class="settings-window">
+      <div class="settings-header">
+        <h2>Settings</h2>
+        <button class="close-btn" id="close">×</button>
+      </div>
+      <form id="settings-form">
+        <div class="form-group">
+          <label for="instrument">Instrument</label>
+          <input type="text" id="instrument" placeholder="e.g., XAU/USD, EUR/USD, AAPL" />
+        </div>
+        <div class="form-group">
+          <label for="apiKey">Twelve Data API Key</label>
+          <input type="password" id="apiKey" placeholder="Your API key" />
+        </div>
+        <div class="form-group">
+          <label for="timezone">Time Zone</label>
+          <select id="timezone">
+            <option value="">Auto-detect</option>
+            <option value="America/New_York">America/New_York</option>
+            <option value="America/Chicago">America/Chicago</option>
+            <option value="America/Los_Angeles">America/Los_Angeles</option>
+            <option value="Europe/London">Europe/London</option>
+            <option value="Europe/Paris">Europe/Paris</option>
+            <option value="Europe/Berlin">Europe/Berlin</option>
+            <option value="Europe/Rome">Europe/Rome</option>
+            <option value="Asia/Tokyo">Asia/Tokyo</option>
+            <option value="Asia/Hong_Kong">Asia/Hong_Kong</option>
+            <option value="Asia/Singapore">Asia/Singapore</option>
+            <option value="Asia/Dubai">Asia/Dubai</option>
+            <option value="Australia/Sydney">Australia/Sydney</option>
+            <option value="UTC">UTC</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="refreshInterval">Refresh Interval (seconds)</label>
+          <div class="input-with-info">
+            <input type="number" id="refreshInterval" min="10" max="3600" value="60" />
+            <div class="api-calls-info">
+              <span id="apiCallsPerHour">~60/hour</span>
+              <span id="apiCallsPerDay">~1,440/day</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Chart Color</label>
+          <div class="color-presets">
+            <button type="button" class="color-preset" data-color="#E0E8FF" title="Ice Blue"></button>
+            <button type="button" class="color-preset" data-color="#FFD700" title="Gold"></button>
+            <button type="button" class="color-preset" data-color="#2ecc71" title="Green"></button>
+            <button type="button" class="color-preset" data-color="#e74c3c" title="Red"></button>
+            <button type="button" class="color-preset" data-color="#9b59b6" title="Purple"></button>
+            <button type="button" class="color-preset" data-color="#3498db" title="Blue"></button>
+            <button type="button" class="color-preset" data-color="#1abc9c" title="Teal"></button>
+            <button type="button" class="color-preset" data-color="#f39c12" title="Orange"></button>
+            <input type="color" id="accentColor" value="#E0E8FF" title="Custom color" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="opacity">Opacity</label>
+          <div class="slider-with-value">
+            <input type="range" id="opacity" min="10" max="100" value="75" />
+            <span id="opacityValue">75%</span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="cancel">Cancel</button>
+          <button type="submit" id="save">Save</button>
+        </div>
+      </form>
+    </div>
+    <script type="module" src="/src/settings.ts"></script>
+  </body>
+</html>

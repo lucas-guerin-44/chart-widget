@@ -1,0 +1,47 @@
+{
+  "name": "chart-widget",
+  "productName": "Chart Widget",
+  "version": "1.0.0",
+  "description": "Transparent desktop widget displaying live ticker price chart",
+  "main": ".vite/build/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx .",
+    "build-icons": "electron-icon-builder --input=./icon.png --output=./icons"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Lucas",
+    "email": "73615836+guerinlucas@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@electron-forge/plugin-fuses": "^7.11.1",
+    "@electron-forge/plugin-vite": "^7.11.1",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "electron": "39.2.7",
+    "electron-icon-builder": "^2.0.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-import": "^2.32.0",
+    "typescript": "~4.5.4",
+    "vite": "^5.4.21"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "dotenv": "^17.2.3",
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}
