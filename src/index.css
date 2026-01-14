@@ -45,10 +45,61 @@ html, body {
   gap: 8px;
 }
 
+.timeframe-wrapper {
+  position: relative;
+  -webkit-app-region: no-drag;
+}
+
 .timeframe {
   color: rgba(255, 255, 255, 0.5);
   font-size: 11px;
   font-weight: 400;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.timeframe:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.timeframe-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 4px 0;
+  min-width: 60px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.timeframe-dropdown.open {
+  display: block;
+}
+
+.timeframe-option {
+  padding: 6px 12px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.timeframe-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.timeframe-option.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .title-price {
@@ -264,7 +315,12 @@ html, body {
 .widget.mini-mode .control-btn {
   width: 16px;
   height: 16px;
-  font-size: 12px;
+  font-size: 10px;
+}
+
+.widget.mini-mode .control-btn svg {
+  width: 10px;
+  height: 10px;
 }
 
 .widget.mini-mode .control-btn.minimize {

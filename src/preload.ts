@@ -7,6 +7,9 @@ export interface Settings {
   refreshInterval: number;
   accentColor: string;
   miniMode: boolean;
+  opacity: number;
+  alerts?: Record<string, number[]>;
+  timeframe?: string;
 }
 
 contextBridge.exposeInMainWorld('electronAPI', {
